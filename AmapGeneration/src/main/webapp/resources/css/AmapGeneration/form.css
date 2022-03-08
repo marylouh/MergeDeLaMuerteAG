@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+
+body, html{
+	background-color: whitesmoke;
+}
+
+h1, h3, label{
+	color:wheat;
+}
+
+input{
+	border-bottom-right-radius: 20px;
+	border-top-left-radius: 20px;
+	padding: 2px 10px 2px 10px; 
+}

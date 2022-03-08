@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:jstl="http://xmlns.jcp.org/jsp/jstl/core"
+	template="/WEB-INF/templates/amap-generation-template.xhtml">
+	<ui:define name="content">
+
+		<h:outputStylesheet name="css/AmapGeneration/amapList.css" />
+
+		<div class="container">
+			<div class="row text-center">
+				<h1>Bienvenue !</h1>
+				<h2>Voici la liste des amap clientes chez nous</h2>
+			</div>
+		</div>
+
+		<div id="amapSummary" class="container-fluid mt-3">
+			<div class="row justify-content-center text-center">
+				<jstl:forEach begin="0" end="2"
+					items="${amapDisplayManagedBean.displayAmaps()}" var="amap">
+					<div class="col-3">
+						<h3>
+							<f:facet name="header" />
+							${amap.nameAmap}
+						</h3>
+						<p>
+							<f:facet name="header" />
+							Client Amap Generation depuis le : <b>${amap.dateOfSubscription}</b>
+						</p>
+
+						<p>
+							<f:facet name="header" />
+							<u>Notre Slogan :</u> <b>${amap.slogan}</b>
+						</p>
+
+						<div class="text-center m-5">
+							<jstl:forEach begin="0" end="2"
+								items="${amapDisplayManagedBean.displaySuppliersByAmap(amap.id)}"
+								var="sup">
+								<h4>Fournisseurs :</h4>
+								<h5>
+									<f:facet name="header" />
+									${sup.companyName} depuis le ${sup.dateOfEntry}
+								</h5>
+							</jstl:forEach>
+						</div>
+						<div class="text-center m-4">
+							<h:form>
+								<h:commandButton
+									action="#{amapDisplayManagedBean.renderAmap(amap.id)}"
+									actionListener="#{amapDisplayManagedBean.attrListener}"
+									value="Visiter le site">
+									<f:param name="amapName" value="${amap.nameAmap}"></f:param>
+								</h:commandButton>
+							</h:form>
+						</div>
+					</div>
+				</jstl:forEach>
+			</div>
+			<div class="row justify-content-center text-center">
+				<jstl:forEach begin="3" end="6"
+					items="${amapDisplayManagedBean.displayAmaps()}" var="amap">
+					<div class="col-3">
+						<h3>
+							<f:facet name="header" />
+							${amap.nameAmap}
+						</h3>
+						<p>
+							<f:facet name="header" />
+							Client Amap Generation depuis le : <b>${amap.dateOfSubscription}</b>
+						</p>
+
+						<div class="text-center m-5">
+							<jstl:forEach begin="3" end="6"
+								items="${amapDisplayManagedBean.displaySuppliersByAmap(amap.id)}"
+								var="sup">
+								<h4>Fournisseurs :</h4>
+								<h5>
+									<f:facet name="header" />
+									${sup.companyName} depuis le ${sup.dateOfEntry}
+								</h5>
+							</jstl:forEach>
+						</div>
+						<div class="text-center m-4">
+							<h:form>
+								<h:commandButton
+									action="#{amapDisplayManagedBean.renderAmap(amap.id)}"
+									actionListener="#{amapDisplayManagedBean.attrListener}"
+									value="Visiter le site">
+									<f:param name="amapName" value="${amap.nameAmap}"></f:param>
+								</h:commandButton>
+							</h:form>
+						</div>
+					</div>
+				</jstl:forEach>
+			</div>
+		</div>
+
+
+	</ui:define>
+</ui:composition>

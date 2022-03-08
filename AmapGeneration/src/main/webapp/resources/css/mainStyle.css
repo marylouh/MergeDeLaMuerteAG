@@ -1,0 +1,11 @@
+body, html{
+	background-color: black;
+}
+
+H1,H2,H3,H4,H5,p,label{
+	color: wheat;	
+}
+
+div.navbar.navbar-default.navbar-fixed-top.mb-3{
+	border-bottom: 1px solid whitesmoke;	
+}

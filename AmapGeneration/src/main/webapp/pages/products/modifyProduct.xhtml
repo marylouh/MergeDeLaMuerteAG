@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/amap-webpages-template.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet name="css/Amap/homeAmap.css" />
+		<link rel="stylesheet" type="text/css"
+			href="resources/css/shopStyle.css" />
+
+
+		<div class="container">
+			<h3>Modifier</h3>
+			<h:form id="ModifyEntryForm">
+
+				<h:panelGrid columns="1">
+					<h:panelGrid columns="3">
+
+						<h:outputLabel value="Nom du produit :  " />
+						<h:inputText class="form-control" id="nameProduct"
+							value="#{productManagedBean.productDTO.name}" />
+						<h:messages for="nameInput" />
+
+						<h:outputLabel value="Prix :  " />
+						<h:inputText size="10" id="price"
+							value="#{productManagedBean.productDTO.price}" />
+						<h:messages for="priceInput" />
+
+						<h:outputLabel value="Quantité :  " />
+						<h:inputText size="10" id="quantite"
+							value="#{productManagedBean.productDTO.quantity}" />
+						<h:messages for="quantityInput" />
+
+						<h:outputLabel value="Type :  " />
+						<h:selectOneMenu
+							value="#{productManagedBean.productDTO.basketProductType}">
+							<f:selectItems value="#{productManagedBean.allBasketType()}"
+								var="gen" itemValue="#{basketType}" itemLabel="#{basketType}" />
+						</h:selectOneMenu>
+
+						<h:messages for="genderInput" />
+						<h:outputLabel value="Description :  " />
+						<h:inputText size="10" id="shortDesc"
+							value="#{productManagedBean.productDTO.shortDescription}" />
+						<h:messages for="descInput" />
+
+						<h:outputLabel value="Description longue :  " />
+						<h:inputTextarea id="longDesc"
+							value="#{productManagedBean.productDTO.longDescription}" />
+						<h:messages for="descInput" />
+
+						<h:outputLabel value="Date :  " />
+						<h:inputText size="10" id="date"
+							value="#{productManagedBean.productDTO.dateOfCreation}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:inputText>
+						<h:messages for="dateInput" />
+
+					</h:panelGrid>
+				</h:panelGrid>
+
+				<hr />
+				<h:panelGrid columns="1">
+					<h:commandButton value="Modifier"
+						action="#{productManagedBean.updateProduct(productDTO)}" />
+				</h:panelGrid>
+			</h:form>
+			<hr />
+			<h:link outcome="listBasketProduct.xhtml">Mes paniers</h:link>
+			<hr />
+			<h:link outcome="listShopProduct.xhtml">Mes produits de boutique</h:link>
+
+		</div>
+	</ui:define>
+</ui:composition>

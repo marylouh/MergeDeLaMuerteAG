@@ -1,0 +1,33 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: whitesmoke;
+}
+
+h1, h2, h3, h4, h5, p, label {
+	color: black !important;
+}
+
+
+section.black {
+	background-color: black;
+}
+
+section.white>div>div>h2 {
+	color: purple !important;
+}
+
+section.white>div>div>p {
+	color: black !important;
+}
+
+form > div > div > div > h4 > a {
+	color:black !important;
+}
+
+label.control-label{
+	color:black ! important;
+}
+div.input-group > input{
+	margin-bottom:0px !important;
+}

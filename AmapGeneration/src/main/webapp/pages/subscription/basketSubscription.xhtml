@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/amap-webpages-template.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet name="css/Amap/formAmap.css" />
+
+		<div class="container-fluid">
+			<div class="row text-center mt-3">
+				<div class="row text-center">
+					<div class="col-6">
+						<h2>Formules de paniers de produits bio et locaux :</h2>
+						<div id="formulas" class="container">
+							<div class="row justify-content-center text-center">
+								<div id="l" class="col-6 bf">
+									<h4>Formule Solo</h4>
+									<p>48 paniers par an à 7.00 euros l'unité</p>
+									<h5 class="mt-4">336.00 €</h5>
+									<p class="slogan">Pour voir la vie en bio !</p>
+								</div>
+								<div id="r" class="col-6 bf">
+									<h4>Formule Duo</h4>
+									<p>48 paniers par an à 13.50 euros l'unité</p>
+									<h5 class="mt-4">648.00 €</h5>
+									<p class="slogan">Pour partager la vie en bio !</p>
+								</div>
+							</div>
+							<div class="row justify-content-center text-center">
+								<div class="col-12 bf">
+									<h4>Formule Famille</h4>
+									<p>48 paniers par an à 25.00 euros l'unité</p>
+									<h5 class="mt-4">1200.00 €</h5>
+									<p class="slogan">Pour bercer les enfants au bio !</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="col-12">
+							<h3>Veuillez choisir la formule de panier à laquelle vous
+								voulez souscrire :</h3>
+							<p>Cliquer sur l'image correspondant à la formule choisie et cliquer sur le bouton de paiement</p>
+							<div class="row text-center">
+								<div class="col-6">
+									<h1>Abonnement formule Solo !</h1>
+
+									<h:form>
+										<h:commandLink
+											action="#{subscriptionManagedBean.addSubscriptionSolo()}">
+											<h:graphicImage library="images" name="panierSolo.jpg"
+												alt="formule solo"  />
+										</h:commandLink>
+									</h:form>
+								</div>
+								<div class="col-6">
+									<h1>Abonnement formule Duo !</h1>
+
+									<h:form>
+										<h:commandLink
+											action="#{subscriptionManagedBean.addSubscriptionDuo()}">
+											<h:graphicImage library="images" name="panierDuo.png"
+												alt="formule duo"  />
+										</h:commandLink>
+									</h:form>
+								</div>
+							</div>
+
+							<div class="row text-center">
+								<div class="col-12">
+									<h1>Abonnement formule Famille !</h1>
+
+									<h:form>
+										<h:commandLink
+											action="#{subscriptionManagedBean.addSubscriptionFamily()}">
+											<h:graphicImage library="images" name="panierFamille.jpg"
+												alt="formule famille" />
+										</h:commandLink>
+									</h:form>
+								</div>
+							</div>
+
+							<div class="mt-5">
+								<h:form >
+									<script src="//checkout.stripe.com/v2/checkout.js"
+										class="stripe-button"
+										data-key="pk_test_51KCmfdGWC7n3FBOqiw5mMnFSPOkaY2yBxEaUVpMu6fMHc6Qu1OzYF4YPx29v74ZC3D9OvcD4vaKIsejt4CcMaXhS008AEv76Ij"
+										data-locale="auto"
+										data-description="Cotiser pour l'association" data-amount=""
+										data-currency="EUR" data-label="S'abonner pour un an">
+									
+								</script>
+								</h:form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	template="/WEB-INF/templates/amap-webpages-template.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet name="css/form.css" />
+
+		<div class="container">
+			<div class="row text-center m-3">
+				<h1>Inscription à une activité</h1>
+			</div>
+			<div class="row text-center">
+				<h:form class="genericForm">
+
+					<div class="row text-center">
+						<h3>Informations</h3>
+					</div>
+
+					<div class="row text-center">
+						<div class="col-12">
+							<h:outputLabel value="Nombre de participants : " />
+						</div>
+						<div class="col-12">
+							<h:inputText
+								value="#{activityAdminManagedBean.numberOfParticipants}">
+							</h:inputText>
+							<h:messages for="numberOfParticipantsInput" />
+						</div>
+					</div>
+
+					<div class="row text-center mt-3">
+						<div class="col-12">
+
+							<h:commandButton id="actionButtonActivity"
+								action="#{activityAdminManagedBean.addActivity()}"
+								value="Enregistrer" />
+
+						</div>
+					</div>
+
+
+				</h:form>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,24 @@
+@charset "ISO-8859-1";
+
+body, html{
+	background-color: black;
+}
+
+H1,H2,H3,H4,H5,p{
+	color: wheat;	
+}
+
+input{
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid whitesmoke;
+	
+}
+
+section.white{
+	background-color: whitesmoke;	
+}
+
+section.black{
+	background-color: black;	
+}

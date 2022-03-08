@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/amap-generation-template.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet name="css/formAmap.css" />
+		<h:form>
+
+			<div class="container">
+				<div class="row text-center m-3">
+					<h1>Login Registered</h1>
+				</div>
+				<div class="row text-center">
+					<div class="col-12">
+						<h:outputLabel value="Login : " />
+					</div>
+					<div class="col-12">
+						<h:inputText
+							value="#{registeredAuthenticationManagedBean.authenticationDto.login}" />
+						<h:messages for="loginInput" />
+					</div>
+				</div>
+
+				<div class="row text-center">
+					<div class="col-12">
+						<h:outputLabel value="PWD : " />
+					</div>
+					<div class="col-12">
+						<h:inputText
+							value="#{registeredAuthenticationManagedBean.authenticationDto.password}" />
+						<h:messages for="passwordInput" />
+
+					</div>
+				</div>
+
+				<div class="row text-center mt-3">
+					<div class="col-12">
+						<h:commandButton id="actionButton"
+							action="#{registeredAuthenticationManagedBean.registeredConnection()}"
+							value="Se connecter" />
+					</div>
+
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

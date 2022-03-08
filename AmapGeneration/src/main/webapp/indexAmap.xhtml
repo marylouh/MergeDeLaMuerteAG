@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/amap-webpages-template.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet name="css/Amap/homeAmap.css" />
+
+		<div class="row">
+			<div class="col-12">
+				<div class="row text-center">
+					<b:carousel id="tiovivo" style="width:100%" interval="2500">
+						<b:carouselItem
+							caption="Voici un de nos paniers de fruits et de légumes">
+							<h:graphicImage library="images" name="panier-fruits-legumes.jpg"
+								alt="Panier fruits et légume"
+								style="width: 70%; height:70%; margin-left:15%;" />
+						</b:carouselItem>
+						<b:carouselItem caption="">
+							<h:graphicImage library="images" name="green-vegetables-fruits.png"
+								alt="Green Vegetables" style="width: 70%; height:70%; margin-left:15%;" />
+						</b:carouselItem>
+					</b:carousel>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+    <div class="row text-center mt-5 mb-5">
+        <div class="col-12">
+            <h2 class="m-3">Cotisez pour l'association et permettez à plus de personnes de bénéficier de produits bio locaux et respectueux de l'environnement.</h2>
+        </div>    
+        <div class="col-12 m-3">
+             <h4><h:outputText value="#{amapDisplayManagedBean.displayAmapInfosFrontPage()}" /> votre plateforme sociale de collecte et de distribution de produits bio.</h4>
+        </div>
+    </div>
+        <div class="row text-center mt-3">
+            <div class="col-md-4 col-sm-12">
+                <h2 class="uppercase">Démocratiser</h2>
+                <p class="dpa">Favoriser l’échange en circuit court entre producteurs et consommateurs et valoriser l'agriculture biologique et responsable pour assainir nos assiettes.</p>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <h2 class="uppercase">Partager</h2>
+                <p class="dpa">
+                    Partager et promouvoir la prise de conscience générale nécessaire au maintien de la biodiversité.
+                </p>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <h2 class="uppercase">Adhérer</h2>
+                <p class="dpa">
+                    Faire vivre les producteurs locaux et encourager leurs actions en faveur de la planète et notre santé.
+                </p>
+            </div>
+        </div>
+    </div>
+
+	</ui:define>
+</ui:composition>

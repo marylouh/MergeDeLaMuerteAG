@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:c="http://primefaces.org/ui"
+	lang="FR">
+<h:head>
+	<title>AMAP Generation</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet name="css/AmapGeneration/navbar.css" />
+	<h:outputStylesheet name="css/AmapGeneration/mainStyle.css" />
+	<h:outputStylesheet name="css/boostrapCss/bootstrap.css" />
+	<h:outputScript name="js/bootstrapJs/bootstrap.js" />
+	<script src="https://js.stripe.com/v3/"></script>
+
+</h:head>
+<h:body id="body"
+	class="d-flex min-vh-100 flex-column justify-content-between">
+	<div id="container_fluid">
+		<div id="navbar">
+			<b:navBar brand-img-style="height:2em; margin-top:-15px; margin-left: -10px; margin-right:10px;" brand-img="/amap-generation/resources/images/Logo.jpg" 
+				brandHref="/amap-generation/index.xhtml" fluid="true">
+				<b:navbarLinks>
+					<b:navLink value="Nos offres de services"
+						href="/amap-generation/index.xhtml#formulas" />
+					<b:navLink value="L'Equipe"
+						href="/amap-generation/index.xhtml#team" />
+					<b:navLink value="Nos valeurs"
+						href="/amap-generation/pages/amapGeneration/ourVision.xhtml" />
+				</b:navbarLinks>
+
+				<b:navbarLinks pull="right" styleClass="hidden-xs">
+				<h:form>
+					<b:commandButton icon-awesome="cog"
+						style="border:black; width:fit-content; background-color: black; color: black; margin-left:2em; margin-bottom:1.5em;"
+						action="#{dataSetManagedBean.dataSet()}" />
+				</h:form>
+					<b:navLink value="Liste Amap"
+						href="/amap-generation/amapSummary.xhtml" />
+					<b:navLink value="Contact"
+						href="/amap-generation/index.xhtml#contact"></b:navLink>
+					<h:form>
+						<b:commandButton
+							style="background:transparent; border:none; color:wheat; font-size: 2em;"
+							icon-awesome="sign-out"
+							action="#{adminAuthenticationManagedBean.logout()}" />
+					</h:form>
+				</b:navbarLinks>
+			</b:navBar>
+		</div>
+
+		<div id="content">
+			<ui:insert name="content"></ui:insert>
+		</div>
+
+
+	</div>
+
+
+	<div id="footer">
+		<div class="row text-center py-3">
+			<div class="col-6 text-right">
+				<h3 id="footerBrand">AMAP Generation</h3>
+			</div>
+			<div class="col-5 text-left">
+				<h4 id="footerText">
+					<b>LE</b> site qu'il vous faut pour votre amap !
+				</h4>
+			</div>
+			<div class="col-1 text-left">
+				<b:navbarLinks>
+					<b:navLink style="color:wheat; font-size: 1.45em;"
+						icon-awesome="arrow-up" href="#body" />
+				</b:navbarLinks>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>

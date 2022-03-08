@@ -1,0 +1,22 @@
+@charset "ISO-8859-1";
+
+h1,h2,h3,h4,h5,p{
+	color: black !important;	
+}
+
+
+div.col-3{
+	margin-left: 3em;
+}
+
+div.panel.panel-default, div.panel-heading{
+	background-color: white !important;
+}
+
+form > div > div > div > div {
+	height: 40em;
+}
+
+h4.panel-title > a {
+	color: whitesmoke !important;
+}

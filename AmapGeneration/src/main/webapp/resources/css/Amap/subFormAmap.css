@@ -1,0 +1,51 @@
+@charset "ISO-8859-1";
+
+
+div#cc.col-6 > div.col-12 > select{
+	margin-left: 15%;
+	margin-top: 25px;
+}
+
+div#addressForm > div.row.mt-3 > div.col-12 > select {
+	margin-left: 21.3% !important;
+} 
+
+div.col-12 >h3{
+	margin-left: 3%;
+}
+
+div#address.col-6{
+	margin-left: 4%;
+}
+
+div#cc.col-6{
+	padding-left: 20%;
+}
+
+
+div#reasons.col-6{
+	border-left: 2px solid black;
+}
+
+div.col-4.reason{
+	height: 15em;
+	width: 15em;
+	color: whitesmoke !important;
+	background-color: green !important;
+	margin: 2% 7% 2% 7%;
+	border-radius: 20%;
+	overflow:scroll;
+	 scrollbar-width: none;
+}
+
+div.col-4.reason::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+div.col-4.reason >p{
+	padding-top: 1.2em;
+	padding-bottom: 1.2em;
+	word-break: break-word; 
+}

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	template="/WEB-INF/templates/amap-webpages-template.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet name="css/form.css" />
+
+		<div class="container">
+			<div class="row text-center m-3">
+				<h1> Choisissez votre formule panier</h1>
+			</div>
+			<div class="row text-center">
+				<h:dataTable value="#{basketFormulasAdminManagedBean}" var="BasketFormulas"
+					styleClass="BasketFormulasTable" headerClass="BasketFormulasTableHeader"
+					rowClasses="BasketFormulasTableBaskRow,basketFormulasTableBaskRow">
+
+					<h:column>
+						<f:facet name="header">Choix panier</f:facet>    				
+      #{basket.basketFormulasName}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Date</f:facet>
+      #{basket.basketFormulas}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Nombre de places</f:facet>
+      #{event.numberOfParticipants}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Description courte</f:facet>
+      #{event.shortDescription}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Programme</f:facet>
+      #{event.programDescription}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Actions</f:facet>
+						<h:form>
+							<h:commandButton id="actionButtonUnsubscriptionEvent"
+								action="#{activityAdminManagedBean.eventSubscribe(event.id, event.numberOfParticipants)}"
+								value="S'inscrire" />
+						</h:form>
+
+					</h:column>
+
+
+				</h:dataTable>
+			</div>
+
+			<div class="row text-center m-3">
+			
+				<h1>Vue d'ensemble des formules</h1>
+			</div>
+			<div class="row text-center">
+				<h:dataTable value="#{activityAdminManagedBean.workshops}"
+					var="workshop" styleClass="workshopTable"
+					headerClass="workshopTableHeader"
+					rowClasses="workshopTableOddRow,workshopTableEvenRow">
+
+					<h:column>
+						<f:facet name="header">Nom</f:facet>    				
+      #{workshop.activityName}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Date</f:facet>
+      #{workshop.activityDate}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Nombre de places</f:facet>
+      #{workshop.numberOfParticipants}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Description courte</f:facet>
+      #{workshop.shortDescription}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Programme</f:facet>
+      #{workshop.programDescription}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Actions</f:facet>
+						<h:form>
+							<h:commandButton id="actionButtonUnsubscriptionWorkshop"
+								action="#{basketFormulasAdminManagedBean.basketformulasSubscribe(basketformulas.id)}"
+								value="S'inscrire" />
+						</h:form>
+					</h:column>
+
+
+				</h:dataTable>
+			</div>
+
+		</div>
+
+	</ui:define>
+</ui:composition>

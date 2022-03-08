@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+
+h1,h2,h3,h4,h5,p,input{
+	color:black !important;
+}
+
+div.col-3 {
+	background-color: black !important;
+	margin-left: 3em;
+	border-radius: 20px;
+}
+
+div.col-3 > h3, div.col-3 > p, div.col-3 > h4,  div.col-3 > div.text-center.m-5 > h4, div.col-3 > div.text-center.m-5 > h5{
+	color:wheat !important;
+}

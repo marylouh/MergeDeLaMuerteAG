@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/amap-webpages-template.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet name="css/Amap/homeAmap.css" />
+		<link rel="stylesheet" type="text/css"
+			href="resources/css/shopStyle.css" />
+
+		<div class="container">
+			<h4>Bienvenue dans notre boutique</h4>
+			<div>
+				<h:dataTable class="table table-bordered table-striped tableOutput"
+					var="product" value="#{productManagedBean.allBasket}" border="2">
+
+					<h:outputText value="#{product.id}" />
+
+					<f:facet name="header">Nom du Produit</f:facet>
+					<h:outputText value="#{product.name}" />
+
+					<f:facet name="header">Prix</f:facet>
+					<h:outputText value="#{product.price}" />
+
+					<f:facet name="header">Quantité</f:facet>
+					<h:outputText value="#{product.quantity}" />
+
+					<f:facet name="header">Description</f:facet>
+					<h:outputText value="#{product.shopProductType}" />
+						
+						<f:facet name="header">Description longue</f:facet>
+						<h:outputText value="#{product.longDescription}" />
+
+						<h:outputText value="#{product.dateOfCreation}">
+						</h:outputText>
+
+						<h:commandButton value="Modifier"
+							action="#{productManagedBean.updateProduct(product.id)}" />
+						<h:commandButton value="Supprimer"
+							action="#{productManagedBean.removeProduct(product.id)}" />
+
+
+						<div class="row row-cols-1 row-cols-md-3 g-4">
+							<div class="col">
+
+								<div class="card h-100">
+									<div class="card-body">
+										<h3 class="card-title">
+											<h:outputText value="#{product.name}" />
+										</h3>
+										<p class="card-text">
+											<h:outputText value="#{product.quantity}" />
+											En stock
+										</p>
+										<p class="card-text">
+											<h:outputText value="#{product.price}" />
+											€
+										</p>
+									</div>
+								</div>
+
+							</div>
+						</div>
+				</h:dataTable>
+				
+				
+				<h:form onclick="window.location.href='listShopProduct.xhtml'">
+				<script src="//checkout.stripe.com/v2/checkout.js"
+					class="stripe-button"
+					data-key="pk_test_51KCmfdGWC7n3FBOqiw5mMnFSPOkaY2yBxEaUVpMu6fMHc6Qu1OzYF4YPx29v74ZC3D9OvcD4vaKIsejt4CcMaXhS008AEv76Ij"
+					data-locale="auto" data-description="Cotiser pour l'association"
+					data-amount="12"
+					data-currency="EUR" data-label="Paiement">
+                             </script>
+			</h:form>
+				
+
+			</div>
+		</div>
+
+
+	</ui:define>
+</ui:composition>

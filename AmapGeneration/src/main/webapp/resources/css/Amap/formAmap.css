@@ -1,0 +1,77 @@
+@charset "ISO-8859-1";
+
+h1,h2,h3,h4,h5,p{
+	color: black !important;	
+}
+
+h5{
+	font-weight: bolder !important;
+	font-size:18px;
+}
+
+body, html{
+	background-color: whitesmoke;
+	overflow-x: hidden;
+}
+
+h1#activity{
+	margin-top:2em !important;
+}
+
+input{
+	border-bottom-right-radius: 20px;
+	border-top-left-radius: 20px;
+	padding: 5px 15px 5px 15px; 
+	background: black;
+	color: whitesmoke !important;
+}
+
+th{
+	text-align: center !important;
+}
+
+td{
+	padding-top:1em !important;
+}
+
+div#formulas.container{
+	margin-top: 28px;
+	background-color: lightgray;
+	height: 45em;
+	width: 50em;
+	border-radius: 25px;
+}
+
+div.col-6.bf{
+	border-radius: 100%;
+	background-color: whitesmoke;
+	height:20em;
+	width:20em;
+	margin-top: 2em;
+}
+
+div.col-6.bf >h4, div.col-12.bf > h4{
+	margin-top: 2.5em;
+}
+
+div.col-12.bf{
+	border-radius: 100%;
+	background-color: whitesmoke;
+	height:20em;
+	width:20em;
+}
+
+div#l.col-6.bf{
+	margin-right:15px;
+}
+
+div#r.col-6.bf{
+	margin-left:15px;
+}
+
+p.slogan{
+	font-size: 25px;
+	margin-top: 19px;
+	color: forestgreen !important;
+}
+

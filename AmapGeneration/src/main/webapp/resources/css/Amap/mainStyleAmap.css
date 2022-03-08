@@ -1,0 +1,41 @@
+:root{
+	--mainStyle-text-shadow-black: 0px 1px 1px black;
+	--mainStyle-footer-color: lightgray;
+	--mainStyleBlackColor: black;
+	--mainStyleWheatColor: wheat;
+	--mainStyleWhiteColor: whitesmoke;
+}
+
+
+body{
+	background-color: var(--mainStyleWhiteColor);
+}
+
+div#footer{
+	width:100%;
+	position: static;
+	bottom:0;
+}
+
+#footer{
+	background-color: var(--mainStyle-footer-color);
+}
+
+#footerBrand{
+	text-shadow: var(--mainStyle-text-shadow-black);
+}
+
+#footerText{
+	margin-top: 1.4em;
+	margin-left: 3em;
+	text-shadow: var(--mainStyle-text-shadow-black);
+}
+#footerText>b{
+	color: goldenrot;
+	text-shadow: none;
+}
+
+
+div.navbar.navbar-default.navbar-fixed-top.mb-3{
+	border-bottom: 1px solid whitesmoke;	
+}
