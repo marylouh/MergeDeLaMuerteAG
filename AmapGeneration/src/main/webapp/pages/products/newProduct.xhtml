@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/amap-webpages-template.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet name="css/Amap/homeAmap.css" />
+		<link rel="stylesheet" type="text/css"
+			href="resources/css/shopStyle.css" />
+
+		<div class="container ">
+			<h:form id="createEntryForm">
+
+				<h:panelGrid class="mb-3">
+					<h5 style="color: #338DFF;">Produits</h5>
+					<h:panelGrid>
+						<div class="mb-3">
+							<h:outputLabel value="Nom du produit :  " />
+							<h:inputText class="form-control" id="nameProduct"
+								value="#{productManagedBean.productDTO.name}" />
+							<h:messages for="nameInput" />
+						</div>
+						<div class="mb-3">
+							<h:outputLabel value="Prix :  " />
+							<h:inputText class="form-control" size="10" id="price"
+								value="#{productManagedBean.productDTO.price}" />
+							<h:messages for="priceInput" />
+						</div>
+						<div class="mb-3">
+							<h:outputLabel value="Quantité :  " />
+							<h:inputText class="form-control" size="10" id="quantite"
+								value="#{productManagedBean.productDTO.quantity}" />
+							<h:messages for="quantityInput" />
+						</div>
+						<div class="mb-3">
+							<h:outputLabel value="Type :  " />
+							<h:selectOneMenu class="form-control"
+								value="#{productManagedBean.productDTO.basketProductType}">
+								<f:selectItems value="#{productManagedBean.allBasketType()}"
+									var="basket" itemValue="#{basketType}"
+									itemLabel="#{basketType}" />
+							</h:selectOneMenu>
+							<h:messages for="basketInput" />
+						</div>
+
+						<div class="mb-3">
+							<h:outputLabel value="Description :  " />
+							<h:inputText class="form-control" size="10" id="shortDesc"
+								value="#{productManagedBean.productDTO.shortDescription}" />
+							<h:messages for="descInput" />
+						</div>
+						<div class="mb-3">
+							<h:outputLabel value="Description longue :  " />
+							<h:inputTextarea rows="3" class="form-control" id="longDesc"
+								value="#{productManagedBean.productDTO.longDescription}" />
+							<h:messages for="descInput" />
+						</div>
+
+					</h:panelGrid>
+				</h:panelGrid>
+
+				<h:panelGrid columns="1">
+					<div class="mb-3">
+						<h:commandButton value="Ajouter en boutique"
+							action="#{productManagedBean.addShopProduct()}" />
+						<h:commandButton value="Ajouter pour Panier"
+							action="#{productManagedBean.addBasketProduct()}" />
+					</div>
+				</h:panelGrid>
+			</h:form>
+			<h:link outcome="index">Revenir à l'accueil</h:link>
+			<h:link outcome="listBasketProduct.xhtml">Mes paniers</h:link>
+			<h:link outcome="listShopProduct.xhtml">Mes produits de boutique</h:link>
+
+		</div>
+
+	</ui:define>
+</ui:composition>

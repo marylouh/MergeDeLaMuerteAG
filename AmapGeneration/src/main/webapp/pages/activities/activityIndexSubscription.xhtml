@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	template="/WEB-INF/templates/amap-webpages-template.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet name="css/form.css" />
+
+		<div class="container">
+			<div class="row text-center m-3">
+				<h1>Vue d'ensemble des évènements</h1>
+			</div>
+			<div class="row text-center">
+				<h:dataTable value="#{activityController.events}" var="event"
+					styleClass="eventTable" headerClass="eventTableHeader"
+					rowClasses="eventTableOddRow,eventTableEvenRow">
+					
+					<h:column>
+						<f:facet name="header">Id</f:facet>    				
+      #{event.id}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Nom</f:facet>    				
+      #{event.activityName}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Date</f:facet>
+      #{event.activityDate}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Nombre de places</f:facet>
+      #{event.numberOfParticipants}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Description courte</f:facet>
+      #{event.shortDescription}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Programme</f:facet>
+      #{event.programDescription}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Action</f:facet>
+						<h:form>
+							<h:commandButton id="actionButtonSubscriptionEvent"
+								action="#{activityController.eventSubscribe(event)}"
+								value="S'inscrire" />
+						</h:form>
+
+					</h:column>
+
+
+				</h:dataTable>
+			</div>
+
+			<div class="row text-center m-3">
+				<h1>Vue d'ensemble des ateliers</h1>
+			</div>
+			<div class="row text-center">
+				<h:dataTable value="#{activityController.workshops}"
+					var="workshop" styleClass="workshopTable"
+					headerClass="workshopTableHeader"
+					rowClasses="workshopTableOddRow,workshopTableEvenRow">
+					
+					<h:column>
+						<f:facet name="header">Id</f:facet>    				
+      #{workshop.id}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Nom</f:facet>    				
+      #{workshop.activityName}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Date</f:facet>
+      #{workshop.activityDate}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Nombre de places</f:facet>
+      #{workshop.numberOfParticipants}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Description courte</f:facet>
+      #{workshop.shortDescription}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Programme</f:facet>
+      #{workshop.programDescription}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Action</f:facet>
+						<h:form>
+							<h:commandButton id="actionButtonSubscriptionWorkshop"
+								action="#{activityController.workshopSubscribe(workshop)}"
+								value="S'inscrire" />
+						</h:form>
+					</h:column>
+
+
+				</h:dataTable>
+			</div>
+
+		</div>
+
+	</ui:define>
+</ui:composition>

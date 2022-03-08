@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/amap-webpages-template.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet name="css/Amap/formAmap.css" />
+
+		<div class="container">
+			<div class="row text-center m-3">
+				<h1 class="activity">Vue d'ensemble des évènements</h1>
+			</div>
+			<div class="row text-center">
+				<h:dataTable value="#{activityController.events}" var="event"
+					styleClass="eventTable" headerClass="eventTableHeader"
+					rowClasses="eventTableOddRow,eventTableEvenRow">
+
+					<h:column>
+						<f:facet name="header">Id</f:facet>
+						#{event.id}
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Nom</f:facet>    				
+				      	#{event.activityName}
+				   </h:column>
+					
+					<h:column>
+						<f:facet name="header">Type d'activité</f:facet>    				
+				      	#{event.activityType}
+				   </h:column>
+					
+					<h:column>
+						<f:facet name="header">Date</f:facet>
+				     	#{event.activityDate}
+				   </h:column>
+
+					<h:column>
+						<f:facet name="header">Nombre de places</f:facet>
+				     	#{event.numberOfParticipants}
+				   </h:column>
+
+					<h:column>
+						<f:facet name="header">Description courte</f:facet>
+				      	#{event.shortDescription}
+				   </h:column>
+
+					<h:column>
+						<f:facet name="header">Programme</f:facet>
+				      	#{event.programDescription}
+				   </h:column>
+
+					<h:column>
+						<f:facet name="header">Actions</f:facet>
+
+						<h:form id="formEvent">
+							<h:commandButton style="color:white;" id="actionSubscriptionEvent"
+								action="#{activityController.eventSubscribe(event)}"
+								outcome="activitySubscribed" value="S'inscrire" />
+
+							<h:commandButton style="color:white;" id="actionUnsubscribeEvent"
+								action="#{activityController.eventUnsubscribe(event)}"
+								outcome="activityUnsubscribed"
+								value="Se désinscrire" />
+						</h:form>
+
+					</h:column>
+
+
+				</h:dataTable>
+			</div>
+
+			<div class="row text-center m-3">
+				<h1 class="activity">Vue d'ensemble des ateliers</h1>
+			</div>
+			<div class="row text-center">
+				<h:dataTable value="#{activityController.workshops}"
+					var="workshop" styleClass="workshopTable"
+					headerClass="workshopTableHeader"
+					rowClasses="workshopTableOddRow,workshopTableEvenRow">
+
+					<h:column>
+						<f:facet name="header">Id</f:facet>
+					#{workshop.id}
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Nom</f:facet>    				
+				      	#{workshop.activityName}
+				   </h:column>
+					
+					<h:column>
+						<f:facet name="header">Type d'activité</f:facet>    				
+				      	#{workshop.activityType}
+				   </h:column>
+				   
+					<h:column>
+						<f:facet name="header">Date</f:facet>
+				      #{workshop.activityDate}
+				   </h:column>
+
+					<h:column>
+						<f:facet name="header">Nombre de places</f:facet>
+		      			#{workshop.numberOfParticipants}
+		  			</h:column>
+
+					<h:column>
+						<f:facet name="header">Description courte</f:facet>
+				      	#{workshop.shortDescription}
+				   </h:column>
+
+					<h:column>
+						<f:facet name="header">Programme</f:facet>
+				      	#{workshop.programDescription}
+				   </h:column>
+
+					<h:column>
+						<f:facet name="header">Actions</f:facet>
+
+						<h:form id="formWorkshop">
+							<h:commandButton style="color:white;"
+								id="actionSubscribeWorkshop" outcome="activitySubscribed"
+								action="#{activityController.workshopSubscribe(workshop)}"
+								value="S'inscrire"/>
+
+							<h:commandButton style="color:white;"
+								id="actionUnsubscribeWorkshop"
+								action="#{activityController.workshopUnsubscribe(workshop)}"
+								value="Se désinscrire" />
+						</h:form>
+
+					</h:column>
+
+
+				</h:dataTable>
+
+			</div>
+
+		</div>
+
+	</ui:define>
+</ui:composition>

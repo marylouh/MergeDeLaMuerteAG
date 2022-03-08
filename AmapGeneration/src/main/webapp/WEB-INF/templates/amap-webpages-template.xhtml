@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:c="http://primefaces.org/ui"
+	lang="FR">
+<h:head>
+	<!-- 	Mettre une variable avec le nom de l'amap ici  -->
+	<title>AMAP Generation</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet name="css/Amap/navbarAmap.css" />
+	<h:outputStylesheet name="css/Amap/lateralNavbar.css" />
+	<h:outputStylesheet name="css/Amap/mainStyleAmap.css" />
+	<h:outputStylesheet name="css/boostrapCss/bootstrap.css" />
+	<h:outputScript name="js/bootstrapJs/bootstrap.js"></h:outputScript>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://js.stripe.com/v3/"></script>
+</h:head>
+<h:body id="body"
+	class="d-flex min-vh-100 flex-column justify-content-between">
+	<div id="container_fluid">
+		<div id="navvbar">
+			<div id="navvbar">
+				<b:navBar
+					brand="#{amapDisplayManagedBean.displayAmapInfosFrontPage()}"
+					brandHref="/amap-generation/indexAmap.xhtml" fluid="true">
+					<b:navbarLinks>
+						<b:dropMenu value="Nous rejoindre" iconAwesome="fa-heartbeat">
+							<b:navLink value="S'inscrire"
+								href="/amap-generation/pages/registered/register.xhtml"></b:navLink>
+							<b:navLink
+							icon-awesome="fa-group"
+								value="Adhérer à l'association"
+								href="/amap-generation/pages/subscription/amapSubscription.xhtml"></b:navLink>
+						</b:dropMenu>
+						
+							<b:navLink value="S'abonner à un panier"
+							rendered="#{profileManagementManagedBean.testIfRegisteredConnected() != null}"
+								href="/amap-generation/pages/subscription/basketSubscription.xhtml"></b:navLink>
+						
+							<b:navLink value="Boutique en ligne"
+								href="/amap-generation/pages/boutique/boutique.xhtml"></b:navLink>
+								
+							<b:navLink value="Liste des Activités de l'AMAP"
+							icon-awesome="fa-group"
+							rendered="#{profileManagementManagedBean.testIfRegisteredConnected() != null}"
+								href="/amap-generation/pages/activities/activityIndex.xhtml"></b:navLink>
+
+							<b:navLink value="Liste de vos Activités"
+							icon-awesome="fa-group"
+							rendered="#{profileManagementManagedBean.testIfSupplierConnected() != null}"
+								href="/amap-generation/pages/activities/activitySupplier.xhtml"></b:navLink>
+
+							<b:navLink value="Liste des Activités de l'AMAP"
+							icon-awesome="fa-group"
+							rendered="#{profileManagementManagedBean.testIfAmapAdminConnected() != null}"
+								href="/amap-generation/pages/activities/activityAdmin.xhtml"></b:navLink>
+
+
+					</b:navbarLinks>
+					<b:navbarLinks pull="right" styleClass="hidden-xs">
+						<b:navLink value="Retour site Amap Generation"
+							href="/amap-generation/index.xhtml"></b:navLink>
+						<h:form>
+							<b:commandButton
+								style="background:transparent; border:none; color:whitesmoke; font-size: 2em;"
+								icon-awesome="power-off"
+								action="#{adminAuthenticationManagedBean.logout()}" />
+						</h:form>
+					</b:navbarLinks>
+				</b:navBar>
+			</div>
+		</div>
+		
+		<div id="content">
+			<ui:insert name="content"></ui:insert>
+		</div>
+
+	</div>
+
+
+	<div id="footer">
+		<div class="row text-center py-3">
+			<div class="col-6 text-right">
+				<h:outputLabel id="footerAmap"
+					value="#{amapDisplayManagedBean.displayAmapInfosFrontPage()}" />
+			</div>
+			<div class="col-5 text-left">
+				<h4 id="footerText">Copyright - 2022</h4>
+			</div>
+			<div class="col-1 text-left">
+				<b:navbarLinks>
+					<b:navLink style="color:wheat; font-size: 1.45em;"
+						icon-awesome="arrow-up" href="#body" />
+				</b:navbarLinks>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>

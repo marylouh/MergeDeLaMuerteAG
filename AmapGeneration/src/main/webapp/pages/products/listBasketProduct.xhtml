@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/amap-webpages-template.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet name="css/Amap/homeAmap.css" />
+	<link rel="stylesheet" type="text/css"
+		href="resources/css/shopStyle.css" />
+
+
+<h3>Liste des produits pour les paniers saisonniers</h3>
+
+<div class="container">
+	<hr />
+	<h:form id="productListForm">
+		
+		<h:dataTable class="table table-bordered table-striped tableOutput" 
+			var="product" value="#{productManagedBean.allBasket}" border="2">
+			
+			<h:column>
+				<f:facet name = "header">Id</f:facet>
+				<h:outputText value="#{product.id}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name = "header">Nom du Produit</f:facet>
+				<h:outputText value="#{product.name}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name = "header">Prix</f:facet>
+				<h:outputText value="#{product.price}"/>
+				 €
+			</h:column>
+			
+			<h:column>
+				<f:facet name = "header">Quantité</f:facet>
+				<h:outputText value="#{product.quantity}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name = "header">Description</f:facet>
+				<h:outputText value="#{product.shopProductType}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name = "header">Description longue</f:facet>
+				<h:outputText value="#{product.longDescription}"/>
+			</h:column>
+			
+			<h:column>
+				<h:outputText value="#{product.dateOfCreation}">
+			</h:outputText>
+			</h:column>
+			<h:column>
+				<h:commandButton value="Modifier" action="#{productManagedBean.updateProduct(product.id)}"/>
+			</h:column>
+			<h:column>
+				<h:commandButton value="Supprimer" action="#{productManagedBean.removeProduct(product.id)}"/>
+			</h:column>
+					
+		</h:dataTable>
+		
+	</h:form>
+	</div>
+	<hr />
+	<h:link outcome="newProduct.xhtml">Retour</h:link>
+
+</ui:define>
+</ui:composition>

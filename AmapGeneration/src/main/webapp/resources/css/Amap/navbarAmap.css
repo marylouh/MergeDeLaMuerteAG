@@ -1,0 +1,27 @@
+@charset "ISO-8859-1";
+
+nav{
+	background-color: green !important;
+	padding-top:0.35em;
+}
+
+nav > div > div > a{
+	margin-top:-0.1em;
+}
+
+nav > div > div > a > span{
+	font-size: 1.4em;
+}
+
+nav > div > div > ul > li > a {
+	font-size: 1.3em;
+}
+
+ul.dropdown-menu{
+	background-color: green !important;
+}
+
+a{
+	color:whitesmoke !important;
+	display: inline;
+}

@@ -1,0 +1,11 @@
+/target/
+.settings/
+target/
+.DS_Store
+.project
+.classpath
+.tern-project
+.metadata/
+.pom.xml
+
+/bin/

@@ -1,0 +1,17 @@
+@charset "ISO-8859-1";
+
+h1, h2, label {
+	color:black !important;
+	
+}
+
+label{
+	font-size: 18px;
+	color: purple !important;
+}
+
+p{
+	color: purple !important;
+	display:inline;
+	font-size: 18px;
+}

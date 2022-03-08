@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/amap-generation-template.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet name="css/AmapGeneration/home.css" />
+
+		<section>
+			<div class="row mt-4">
+				<div class="col-8">
+					<div class="row text-center">
+						<b:carousel id="tiovivo" style="width:100%" interval="2500">
+							<b:carouselItem
+								caption="AMAP Generation LE centre de service qu'il vous faut !">
+								<h:graphicImage library="images" name="amapgeneration.gif"
+									alt="AmapGeneration"
+									style="width: 100%; height: 600px; color:whitesmoke !important;" />
+							</b:carouselItem>
+							<b:carouselItem caption="">
+								<h:graphicImage library="images" name="websiteGen.png"
+									alt="websiteGeneration" style="width: 100%; height: 600px" />
+							</b:carouselItem>
+							<b:carouselItem>
+								<h:graphicImage library="images" name="test.jpg"
+									alt="NeedSupport"
+									style="width: 1000%; height: 600px; color:whitesmoke !important;" />
+							</b:carouselItem>
+						</b:carousel>
+					</div>
+				</div>
+				<div class="col-4">
+					<b:form>
+						<b:panel collapsed="false" title="Connnexion AMAP"
+							style="backgroud:transparent; border:none; margin-right:5em; margin-top:2em;">
+							<b:inputText label="Identifiant"
+								value="#{amapAdminAuthenticationManagedBean.authenticationDto.login}">
+								<f:facet name="prepend">
+									<b:iconAwesome name="user" />
+								</f:facet>
+							</b:inputText>
+							<b:inputText type="password" label="Mot de passe"
+								value="#{amapAdminAuthenticationManagedBean.authenticationDto.password}">
+								<f:facet name="prepend">
+									<b:iconAwesome name="key" />
+								</f:facet>
+							</b:inputText>
+							<div class="row text-center">
+								<h:commandButton
+									style="width:fit-content; margin-left: 42%; background-color:black; color:wheat; padding:5px 10px 5px 10px;"
+									action="#{amapAdminAuthenticationManagedBean.amapConnection()}"
+									value="Se connecter" />
+							</div>
+						</b:panel>
+					</b:form>
+					<b:form>
+						<b:panel collapsed="false"
+							title="Connnexion administrateur AMAP GENERATION"
+							style="backgroud:transparent; border:none; margin-right:5em;">
+							<b:inputText label="Identifiant"
+								value="#{adminAuthenticationManagedBean.adminAuthenticationDto.loginAdmin}">
+								<f:facet name="prepend">
+									<b:iconAwesome name="user" />
+								</f:facet>
+							</b:inputText>
+							<b:inputText type="password" label="Mot de passe"
+								value="#{adminAuthenticationManagedBean.adminAuthenticationDto.passwordAdmin}">
+								<f:facet name="prepend">
+									<b:iconAwesome name="key" />
+								</f:facet>
+							</b:inputText>
+							<div class="row text-center">
+								<h:commandButton
+									style="width:fit-content; margin-left: 42%; background-color:black; color:wheat; padding:5px 10px 5px 10px;"
+									action="#{adminAuthenticationManagedBean.adminConnection()}"
+									value="Se connecter" />
+							</div>
+						</b:panel>
+					</b:form>
+				</div>
+			</div>
+		</section>
+
+
+		<section id="formulas" class="white py-5">
+			<div class="container">
+				<div class="row text-center">
+					<h2>Formule Basique</h2>
+					<p>Un site web avec un gestion de profils inscrits, adhérents,
+						fournisseurs et une fonctionnalité d'abonnements à des paniers bio
+						et locaux.</p>
+					<h:form>
+						<h:commandLink
+							rendered="#{amapRegistrationManagedBean.checkIfAmapAdminConnected() != null}"
+							action="#{amapRentalFormulasManagedBean.subscriptionRentalFirstFormulas()}">
+							<b:icon value="pencil"> Creer son site : formule basique </b:icon>
+						</h:commandLink>
+					</h:form>
+				</div>
+			</div>
+		</section>
+
+		<section class="black py-5">
+			<div class="container">
+				<div class="row text-center">
+					<h2>Formule Professionnelle</h2>
+					<p>Un site web avec, en plus des fonctionnalités précitées, une
+						boutique en ligne accessible aux inscrits.</p>
+					<h:form>
+						<h:commandLink
+							rendered="#{amapRegistrationManagedBean.checkIfAmapAdminConnected() != null}"
+							action="#{amapRentalFormulasManagedBean.subscriptionRentalSecondFormulas()}">
+							<b:icon value="pencil"> Creer son site : formule professionnelle </b:icon>
+						</h:commandLink>
+					</h:form>
+				</div>
+			</div>
+		</section>
+
+		<section class="white py-5">
+			<div class="container">
+				<div class="row text-center">
+					<h2>Formule Réseau social</h2>
+					<p>Un site web avec une fonctionalité supplémentaire : les
+						fournisseurs peuvent proposer des activités auxquelles les
+						inscrits et les adhérents à l'association peuvent participer par
+						une inscription.</p>
+					<h:form>
+						<h:commandLink
+							rendered="#{amapRegistrationManagedBean.checkIfAmapAdminConnected() != null}"
+							action="#{amapRentalFormulasManagedBean.subscriptionRentalThirdFormulas()}">
+							<b:icon value="pencil"> Creer son site : formule Réseau social </b:icon>
+						</h:commandLink>
+					</h:form>
+				</div>
+			</div>
+		</section>
+
+		<section id="contact" class="black py-5">
+			<div class="container">
+				<div class="row text-center">
+					<h2 class="mb-5">Formulaire de contact</h2>
+					<h:form>
+						<div class="row text-center">
+							<div id="questionFormText" class="col-4">
+								<h5>
+									<strong style="text-decoration: underline;">Contactez-nous !</strong>
+								</h5>
+								<p>Pour toute question relative à nos offres de service vous
+									pouvez nous faire parvenir un message via la formulaire de
+									contact. Nous nous engageons à y répondre sous 48H ouvrées !</p>
+							</div>
+							<div id="messageForm" class="col-8 justify-content-right">
+								<div class="col-12">
+									<h:outputLabel value="Votre nom"></h:outputLabel>
+								</div>
+								<div class="col-12">
+									<h:inputText value=""></h:inputText>
+									<h:messages for="nameInput"></h:messages>
+								</div>
+								<div class="col-12">
+									<h:outputLabel value="Votre Email"></h:outputLabel>
+
+								</div>
+								<div class="col-12">
+									<h:inputText value=""></h:inputText>
+									<h:messages for="emailInput"></h:messages>
+								</div>
+
+								<div class="col-12">
+									<h:outputLabel value="Sujet"></h:outputLabel>
+								</div>
+								<div class="col-12">
+									<h:inputText value=""></h:inputText>
+									<h:messages for="subjectInput"></h:messages>
+								</div>
+								<div class="col-12">
+									<h:outputLabel value="Votre Message"></h:outputLabel>
+
+								</div>
+								<div id="messageInput" class="col-12">
+									<h:inputTextarea value=""></h:inputTextarea>
+									<h:messages for="messageInput"></h:messages>
+								</div>
+
+								<h3>Command button à caler ici</h3>
+							</div>
+						</div>
+
+					</h:form>
+				</div>
+			</div>
+		</section>
+
+		<section id="team" class="white py-5">
+			<div class="container">
+				<div class="row text-center">
+					<h2 class="mb-5">L'équipe Amap Generation</h2>
+				</div>
+				<div class="row text-center">
+					<h4>Service 1</h4>
+					<div class="col-6">Mélanie</div>
+					<div class="col-6">Charlotte</div>
+				</div>
+				<div class="row text-center">
+					<h4>Service 2</h4>
+					<div class="col-6">Houria</div>
+					<div class="col-6">Gym</div>
+				</div>
+				<div class="row text-center">
+					<h4>Service 3</h4>
+					<div class="col-6">Elise</div>
+					<div class="col-6">Sylvain</div>
+				</div>
+			</div>
+		</section>
+
+	</ui:define>
+</ui:composition>

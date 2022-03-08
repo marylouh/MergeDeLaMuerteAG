@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/amap-generation-template.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet name="css/formAmap.css" />
+
+        <div class="container">
+            <div class="row text-center m-3">
+                <h1>Inscription d'un supplier chez une Amap</h1>
+            </div>
+            <div class="row text-center">
+                <h:form class="genericForm">
+
+                    <div class="row text-center">
+                        <h3>Informations personnnelles</h3>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <h:outputLabel value="Prénom : " />
+                        </div>
+                        <div class="col-12">
+                            <h:inputText value="#{supplierRegistrationManagedBean.supplierRegistrationHelper.firstName}" />
+                            <h:messages for="firstNameInput" />
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <h:outputLabel value="Nom : " />
+                        </div>
+                        <div class="col-12">
+                            <h:inputText value="#{supplierRegistrationManagedBean.supplierRegistrationHelper.lastName}" />
+                            <h:messages for="lastNameInput" />
+
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <h:outputLabel value="Date de Naissance : " />
+                        </div>
+                        <div class="col-12">
+                            <h:inputText value="#{supplierRegistrationManagedBean.supplierRegistrationHelper.birthDate}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:inputText>
+                            <h:messages for="birthDateInput" />
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <h:outputLabel value="Civilité : " />
+                        </div>
+                        <div class="col-12">
+                            <h:selectOneMenu value="#{supplierRegistrationManagedBean.supplierRegistrationHelper.gender}">
+                                <f:selectItems value="#{registrationManagedBean.allGenders()}" var="gen" itemValue="#{gen}" itemLabel="#{gen}" />
+                            </h:selectOneMenu>
+
+                            <h:messages for="genderInput" />
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <h:outputLabel value="Identifiant : " />
+                        </div>
+                        <div class="col-12">
+                            <h:inputText value="#{supplierRegistrationManagedBean.supplierRegistrationHelper.login}" />
+                            <h:messages for="loginInput" />
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <h:outputLabel value="Mot de passe : " />
+                        </div>
+                        <div class="col-12">
+                            <h:inputText value="#{supplierRegistrationManagedBean.supplierRegistrationHelper.password}" />
+                            <h:messages for="passwordInput" />
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <h:outputLabel value="Nom de la compagnie : " />
+                        </div>
+                        <div class="col-12">
+                            <h:inputText value="#{supplierRegistrationManagedBean.supplierRegistrationHelper.companyName}" />
+                            <h:messages for="aliasInput" />
+                        </div>
+                    </div>
+                    
+                      <div class="row text-center">
+                        <div class="col-12">
+                            <h:outputLabel value="Date de création : " />
+                        </div>
+                        <div class="col-12">
+                            <h:inputText value="#{supplierRegistrationManagedBean.supplierRegistrationHelper.dateOfEntry}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:inputText>
+                            <h:messages for="entryDateInput" />
+                        </div>
+                    </div>
+                    
+                         <div class="row text-center">
+                        <div class="col-12">
+                            <h:outputLabel value="Numéro de siret : " />
+                        </div>
+                        <div class="col-12">
+                            <h:inputText value="#{supplierRegistrationManagedBean.supplierRegistrationHelper.siretNumber}">
+                            </h:inputText>
+                            <h:messages for="siretNumeroInput" />
+                        </div>
+                    </div>
+
+                    <div class="row text-center mt-3">
+                        <h3>Adresse</h3>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <h:outputLabel value="Numéro de rue : " />
+                        </div>
+                        <div class="col-12">
+                            <h:inputText value="#{supplierRegistrationManagedBean.supplierRegistrationHelper.number}" />
+                            <h:messages for="numberInput" />
+
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <h:outputLabel value="Type adresse : " />
+                        </div>
+                        <div class="col-12">
+                            <h:selectOneMenu value="#{supplierRegistrationManagedBean.supplierRegistrationHelper.typeOfPlace}">
+                                <f:selectItems value="#{supplierRegistrationManagedBean.allTypeOfPlaces()}" var="tops" itemValue="#{tops}" itemLabel="#{tops}" />
+                            </h:selectOneMenu>
+                            <h:messages for="typeOfPlaceInput" />
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <h:outputLabel value="Nom adresse : " />
+                        </div>
+
+                        <div class="col-12">
+                            <h:inputText value="#{supplierRegistrationManagedBean.supplierRegistrationHelper.nameOfPlace}" />
+                            <h:messages for="nameOfPlaceInput" />
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <h:outputLabel value="Code postal : " />
+                        </div>
+
+                        <div class="col-12">
+                            <h:inputText value="#{supplierRegistrationManagedBean.supplierRegistrationHelper.postalCode}" />
+                            <h:messages for="postalCodeInput" />
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <h:outputLabel value="Ville : " />
+                        </div>
+                        <div class="col-12">
+                            <h:inputText value="#{supplierRegistrationManagedBean.supplierRegistrationHelper.town}" />
+                            <h:messages for="townInput" />
+                        </div>
+                    </div>
+
+                    <div class="row text-center mt-3">
+                        <div class="col-12">
+                            <h:commandButton id="demoButton" action="#{supplierRegistrationManagedBean.demo()}" value="Remplissage des champs (dev)" />
+                        </div>
+                    </div>
+
+                    <div class="row text-center mt-3">
+                        <div class="col-12">
+                            <h:commandButton id="actionButton" action="#{supplierRegistrationManagedBean.registerToAmap()}" value="S'inscrire" />
+                        </div>
+                    </div>
+                    </h:form>
+                </div>
+            </div>
+    </ui:define>
+</ui:composition>

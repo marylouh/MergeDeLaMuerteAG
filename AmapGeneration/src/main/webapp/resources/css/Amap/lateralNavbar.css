@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+:root{
+	--lateralNavbarBlackColor: black;
+	--lateralNavbarWheatColor: rgb(128, 70, 134);
+}
+
+.header__menuRight .header__menuRightItems {
+    overflow: hidden;
+}
+
+.header__menuRight .header__menuRightItem {
+    display: block;
+    width: 195px;
+    position: relative;
+    right: 0;
+    transition: .4s;
+    background: #e24e42;
+    padding: .5rem;
+    margin-bottom: 3px;
+    border-radius: 0;
+    -webkit-transform: translateX(80%);
+    -ms-transform: translateX(80%);
+    transform: translateX(80%);
+    cursor: pointer
+}
+
+.header__menuRight .header__menuRightItem:hover {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0)
+}
+
+.header__menuRight .header__menuRightItem span {
+    display: inline-block;
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+    margin-left: 10px;
+    margin-bottom: 0;
+    vertical-align: middle!important
+}
+
+
+.header__menuRightItems .header__menuRightItem:nth-child(1) {
+    background: var(--lateralNavbarWheatColor);
+    color: var(--lateralNavbarWheatColor) !important;
+}
+.header__menuRightItems .header__menuRightItem:nth-child(2) {
+    background: var(--lateralNavbarBlackColor);
+    color: var(--lateralNavbarBlackColor) !important;
+}
+
+.header__menuRightItems .header__menuRightItem:nth-child(3) {
+    background: var(--lateralNavbarWheatColor);
+     color: var(--lateralNavbarWheatColor) !important;
+}
+
+.header__menuRightItems .header__menuRightItem:nth-child(4) {
+    background: var(--lateralNavbarBlackColor);
+    color: var(--lateralNavbarBlackColor) !important;
+}
+
+.header__menuRightItems .header__menuRightItem:nth-child(5) {
+    background: var(--lateralNavbarWheatColor);
+     color: var(--lateralNavbarWheatColor) !important;
+}
+
+.header__menuRightItems .header__menuRightItem:nth-child(6) {
+    background: var(--lateralNavbarBlackColor);
+    color: var(--lateralNavbarBlackColor) !important;
+}
+
+.header__menuRightItems .header__menuRightItem:nth-child(7) {
+    background: var(--lateralNavbarWheatColor);
+     color: var(--lateralNavbarWheatColor) !important;
+}
+
+.header__menuRight {
+    position: fixed;
+    top: 20%;
+    right: 0;
+    z-index: 98
+}
+
+@media only screen and (max-width:40rem) {
+    .header__menuRight {
+        top: 10%
+    }
+}
+
+.clearing-open .header__menuRight {
+    display: none
+}
+
+.header__menuRight li,
+.header__menuRight ul {
+    list-style: none
+}
+
+.svg-container,
+.svg-icon {
+    display: inline-block;
+    vertical-align: middle
+}
+
+.svg-icon {
+    min-width: 25px
+}
+
+.svg-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 0;
+    padding: 0 0 100%
+}
+
+.svg-container>svg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0
+}

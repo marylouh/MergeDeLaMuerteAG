@@ -1,0 +1,73 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: black;
+	overflow-x:hidden !important;
+}
+
+h1, h2, h3, h4, h5, p, label {
+	color: wheat !important;
+}
+
+input {
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid whitesmoke;
+	width: 60%;
+	margin-bottom: 10px !important;
+	border-radius:20px;
+}
+
+section.black {
+	background-color: black;
+}
+
+section.white>div>div>h2 {
+	color: purple !important;
+}
+section.white>div>div>h4 {
+	color: purple !important;
+}
+
+section.white>div>div>form>a {
+	color: purple !important;
+}
+
+section.white>div>div>p {
+	color: black !important;
+}
+
+#questionFormText.col-4 {
+	margin-top: 5em;
+}
+
+div.col-12>input {
+	color: whitesmoke;
+}
+
+div#messageInput.col-12>textarea {
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid whitesmoke;
+	width: 60%;
+	margin-bottom: 10px !important;
+	height: 5em;
+	color: whitesmoke;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+form > div > div > div > h4 > a {
+	color:black !important;
+}
+
+label.control-label{
+	color:black ! important;
+}
+div.input-group > input{
+	margin-bottom:0px !important;
+}
+
+p{
+	font-size:18px;
+}

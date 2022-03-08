@@ -1,0 +1,30 @@
+@charset "ISO-8859-1";
+
+body, html{
+	background-color: whitesmoke;
+	overflow-x: hidden;
+}
+
+h1, h3, label{
+	color:black !important;
+}
+
+input{
+	border-bottom-right-radius: 20px;
+	border-top-left-radius: 20px;
+	padding: 2px 10px 2px 10px; 
+}
+
+select{
+	border-bottom-right-radius: 20px;
+	border-top-left-radius: 20px;
+	padding: 2px 15px 2px 15px !important;
+}
+
+input[id*='actionButton']{
+	padding: 5px 30px 5px 30px !important;
+}
+
+div.row.text-center{
+	margin-top: 0.2em;	
+}

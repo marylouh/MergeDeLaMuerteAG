@@ -1,0 +1,114 @@
+package fr.isika.cda.amap_generation.model.supplier;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Lob;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE_PRODUCT", discriminatorType = DiscriminatorType.STRING)
+@NamedQueries({
+	@NamedQuery(name = "Product.findAll", query = "select p from Product p"),
+	@NamedQuery(name = "ShopProduct.findAll", query = "select s from ShopProduct s")
+})
+public abstract class Product {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID")
+	protected Long id;
+	
+	@Column(name = "NAME")
+	protected String name;
+	
+	@Column(name = "SHORT_DESC")
+	protected String shortDescription;
+	
+	@Lob
+	@Column(name = "LONG_DESC")
+	protected String longDescription;
+	
+	@Column(name = "PRICE")
+	protected BigDecimal price;
+	
+	@Column(name = "DATE_OF_CREATION")
+	protected String dateOfCreation;
+	
+	@Column(name = "IMAGE")
+	protected String image;
+	
+	@Column(name = "QUANTITY")
+	protected int quantity;
+	
+	
+	public Product() {
+		super();
+	}
+	
+	public Product(Long id2) {
+		this.id = id2;
+	}
+	
+	
+	
+	// Getters & Setters
+	public Long getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getShortDescription() {
+		return shortDescription;
+	}
+	public void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
+	}
+	public String getLongDescription() {
+		return longDescription;
+	}
+	public void setLongDescription(String longDescription) {
+		this.longDescription = longDescription;
+	}
+	public BigDecimal getPrice() {
+		return price;
+	}
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+	
+	public String getDateOfCreation() {
+		return dateOfCreation;
+	}
+	public void setDateOfCreation(String dateOfCreation) {
+		this.dateOfCreation = dateOfCreation;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantite) {
+		this.quantity = quantite;
+	}
+	
+}

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/amap-generation-template.xhtml">
+
+	<ui:define name="content">
+	
+	<b:tabView activeIndex="2">
+  <b:tab title="Mon compte">
+    <p>This is the first tab.</p>
+  </b:tab>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <b:tab title="Gérer les inscriptions">
+    <div class="container">
+			<div class="row text-center m-3">
+				<h1 class="activity">Vue d'ensemble des évènements</h1>
+			</div>
+			<div class="row text-center">
+				<h:dataTable value="#{amapRegistrationManagedBean.amapsInProgress}" var="amap"
+					styleClass="eventTable" headerClass="eventTableHeader"
+					rowClasses="eventTableOddRow,eventTableEvenRow">
+
+					<h:column>
+						<f:facet name="header">Nom de l'Amap</f:facet>    				
+      #{amap.nameAmap}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Date d'inscription</f:facet>
+      #{event.activityDate}
+   </h:column>
+
+					<h:column>
+						<f:facet name="header">Actions</f:facet>
+
+						<h:form id="formEvent">
+							<h:commandButton style="color:white;" id="actionButtonModifEvent"
+								action="#{amapRegistrationManagedBean.valideRegistrationStatus(amap.id)}"
+								outcome="activityUpdate" value="Valider" />
+
+							<h:commandButton style="color:white;" id="actionButtonSuppEvent"
+								action="#{amapRegistrationManagedBean.refuseRegistrationStatus(amap.id)}"
+								value="Refuser" />
+						</h:form>
+
+					</h:column>
+
+
+				</h:dataTable>
+			</div>
+
+		</div>
+
+  </b:tab>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <b:tab title="Mes statistiques">
+    	<div class="container">
+			<div class="card">
+				<p:chart type="line"
+					model="#{statisticsPanelManagedBean.amapGeneration2021}"
+					style="height:300px" />
+			</div>
+
+			<br></br> <br></br>
+
+			<div class="card">
+				<p:chart type="line"
+					model="#{statisticsPanelManagedBean.amapGeneration2022}"
+					style="height:300px" />
+			</div>
+		</div>
+  </b:tab>
+  </b:tabView>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	template="/WEB-INF/templates/amap-webpages-template.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet name="css/form.css" />
+
+		<div class="container">
+
+			<div class="row text-center m-3">
+				<h1>Mise à jour d'une activité</h1>
+			</div>
+			<div class="row text-center">
+				<h:form class="genericForm">
+
+					<div class="row text-center">
+						<h3>Informations sur l'activité</h3>
+					</div>
+
+					<div class="row text-center">
+						<div class="col-12">
+							<h:outputLabel value="Type d'activité : " />
+						</div>
+						<div class="col-12">
+							<h:selectOneMenu
+								value="#{activityAdminManagedBean.activityCreationHelper.activityType}">
+								<f:selectItems
+									value="#{activityAdminManagedBean.allActivityTypes()}"
+									var="act" itemValue="#{act}" itemLabel="#{act}" />
+							</h:selectOneMenu>
+							<h:messages for="activityTypeInput" />
+						</div>
+					</div>
+
+					<div class="row text-center">
+						<div class="col-12">
+							<h:outputLabel value="Nom de l'activité : " />
+						</div>
+						<div class="col-12">
+							<h:inputText
+								value="#{activityAdminManagedBean.activityCreationHelper.activityName}" />
+							<h:messages for="activityNameInput" />
+						</div>
+					</div>
+
+					<div class="row text-center">
+						<div class="col-12">
+							<h:outputLabel value="Date de l'activité : " />
+						</div>
+						<div class="col-12">
+							<h:inputText
+								value="#{activityAdminManagedBean.activityCreationHelper.activityDate}">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</h:inputText>
+							<h:messages for="activityDateInput" />
+
+						</div>
+					</div>
+
+					<div class="row text-center">
+						<div class="col-12">
+							<h:outputLabel value="Nombre de places disponibles : " />
+						</div>
+						<div class="col-12">
+							<h:inputText
+								value="#{activityAdminManagedBean.activityCreationHelper.numberOfParticipants}">
+								<!-- 								<f:convertNumber type="number" /> -->
+							</h:inputText>
+							<h:messages for="numberOfParticipantsInput" />
+						</div>
+					</div>
+
+					<div class="row text-center">
+						<div class="col-12">
+							<h:outputLabel value="Petite description : " />
+						</div>
+						<div class="col-12">
+							<h:inputText
+								value="#{activityAdminManagedBean.activityCreationHelper.shortDescription}" />
+							<h:messages for="shortDescription" />
+						</div>
+					</div>
+
+					<div class="row text-center">
+						<div class="col-12">
+							<h:outputLabel
+								value="Programme (donner les horaires et le lieu) : " />
+						</div>
+						<div class="col-12">
+							<h:inputText
+								value="#{activityAdminManagedBean.activityCreationHelper.programDescription}" />
+							<h:messages for="programDescriptionInput" />
+						</div>
+					</div>
+
+					<div class="row text-center mt-3">
+						<div class="col-12">
+
+							<h:commandButton id="actionButtonActivity"
+								action="#{activityAdminManagedBean.updateActivity()}"
+								value="Mettre à jour" />
+
+						</div>
+					</div>
+
+
+				</h:form>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,32 @@
+@charset "ISO-8859-1";
+
+nav{
+	background-color: black !important;
+	padding-top:0.35em;
+}
+
+nav > div > div > a{
+	margin-top:-0.1em;
+}
+
+nav > div > div > a > span{
+	font-size: 1.4em;
+}
+
+nav > div > div > ul > li > a {
+	font-size: 1.3em;
+}
+
+ul.dropdown-menu{
+	background-color: black !important;
+}
+
+a{
+	color:wheat !important;
+	display: inline;
+}
+
+a >span >img {
+	height: 4em;
+}
+

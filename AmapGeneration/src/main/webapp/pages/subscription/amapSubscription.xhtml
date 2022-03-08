@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/amap-webpages-template.xhtml">
+	<ui:define name="content">
+		<h:outputStylesheet name="css/Amap/subFormAmap.css" />
+
+		<div class="container-fluid m-5">
+			<div class="row text-center mb-4">
+				<h1>Adhésion à l'association</h1>
+			</div>
+			<div class="row">
+				<div id="cc" class="col-6">
+				 <h:form class="genericForm">
+					<div class="col-12">
+						<div class="row mt-4">
+							<div class="col-12">
+								<h4>Etes vous un particulier ou une entreprise ?</h4>
+							</div>
+						</div>
+						<h:selectOneMenu
+											value="#{memberJoiningAmapManagedBean.joiningDto.typeOfMember}">
+											<f:selectItems
+												value="#{memberJoiningAmapManagedBean.allTypeOfMember()}"
+												var="topt" itemValue="#{topt}" itemLabel="#{topt}" />
+										</h:selectOneMenu>
+						<h:messages for="typeOfMemberInput" />
+					</div>
+					<div class="col-12">
+						<div class="row mt-4">
+							<div class="col-12">
+								<h3>Ajout d'une carte de crédit</h3>
+							</div>
+						</div>
+						<div class="row mt-2">
+							<div class="col-12">
+								<b:inputText style="width:50%;" type="text"
+									label="Nom du titulaire de la carte"
+									value="#{memberJoiningAmapManagedBean.joiningDto.name}">
+									<f:facet name="prepend">
+										<h:outputText value="Nom" />
+									</f:facet>
+								</b:inputText>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-12">
+								<b:inputText style="width:50%;" type="password"
+									label="Numéro de carte"
+									value="#{memberJoiningAmapManagedBean.joiningDto.numCard}">
+									<f:facet name="prepend">
+										<h:outputText value="1254" />
+									</f:facet>
+								</b:inputText>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-4">
+								<b:inputText style="width:53%" type="text"
+									label="Date d'expiration"
+									value="#{memberJoiningAmapManagedBean.joiningDto.validite}">
+									<f:facet name="prepend">
+										<h:outputText value="MM/AA" />
+									</f:facet>
+								</b:inputText>
+							</div>
+
+							<div class="col-4">
+								<b:inputText style="width:53%;" type="password"
+									label="Criptogramme"
+									value="#{memberJoiningAmapManagedBean.joiningDto.crypto}">
+									<f:facet name="prepend">
+										<b:iconAwesome name="key" />
+									</f:facet>
+								</b:inputText>
+							</div>
+							<div class="row text-center mt-4">
+								<div id="address" class="col-6">
+									<h3>Ajout d'une adresse de facturation éventuelle</h3>
+								</div>
+							</div>
+							<div id="addressForm">
+								<div class="row mt-3">
+									<div class="col-12">
+										<h:outputLabel value="Numéro de rue : " />
+									</div>
+									<div class="col-12">
+										<b:inputText style="width:50%;"
+											value="#{memberJoiningAmapManagedBean.joiningDto.number}">
+											<f:facet name="prepend">
+												<h:outputText value="Num" />
+											</f:facet>
+										</b:inputText>
+									</div>
+								</div>
+
+								<div class="row mt-3">
+									<div class="col-12">
+										<h:outputLabel value="Type adresse : " />
+									</div>
+									<div class="col-12">
+										<h:selectOneMenu
+											value="#{memberJoiningAmapManagedBean.joiningDto.typeOfPlace}">
+											<f:selectItems
+												value="#{registrationManagedBean.allTypeOfPlace()}"
+												var="top" itemValue="#{top}" itemLabel="#{top}" />
+										</h:selectOneMenu>
+										<h:messages for="typeOfPlaceInput" />
+									</div>
+								</div>
+
+								<div class="row mt-3">
+									<div class="col-12">
+										<h:outputLabel value="Nom adresse : " />
+									</div>
+
+									<div class="col-12">
+										<b:inputText style="width:50%;"
+											value="#{memberJoiningAmapManagedBean.joiningDto.nameOfPlace}">
+											<f:facet name="prepend">
+												<h:outputText value="Rue" />
+											</f:facet>
+										</b:inputText>
+									</div>
+								</div>
+
+								<div class="row mt-3">
+									<div class="col-12">
+										<h:outputLabel value="Code postal : " />
+									</div>
+
+									<div class="col-12">
+										<b:inputText style="width:50%;"
+											value="#{memberJoiningAmapManagedBean.joiningDto.postalCode}">
+											<f:facet name="prepend">
+												<h:outputText value="CP" />
+											</f:facet>
+										</b:inputText>
+									</div>
+								</div>
+
+								<div class="row mt-3">
+									<div class="col-12">
+										<h:outputLabel value="Ville : " />
+									</div>
+									<div class="col-12">
+										<b:inputText style="width:50%;"
+											value="#{memberJoiningAmapManagedBean.joiningDto.town}">
+											<f:facet name="prepend">
+												<h:outputText value="Ville" />
+											</f:facet>
+										</b:inputText>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<div class="row mt-3">
+								<h:commandButton
+									style="width:fit-content; margin-left: 42%; background-color:black; color:wheat; padding:5px 10px 5px 10px;"
+									action="#{memberJoiningAmapManagedBean.subscriptionAmap}"
+									value="Payer" />
+							</div>
+							 </h:form>
+				</div>
+				<div id="reasons" class="col-6">
+				<div class="row text-center">
+					<h2>A propos de l’adhésion</h2>
+					<p>Comme toute association, une adhésion est obligatoire. Le prix de l’adhésion est fixé à 13.50€ par foyer.</p>
+					<p>Le montant de l’adhésion est destiné à financer les frais courants de l’association et à organiser des moments 
+					conviviaux</p>
+					<p>En effet, une AMAP est aussi et avant tout un lieu d’échanges, de rencontres et de partage</p>
+				</div>
+				<div class="row text-center">
+					<h3>6 bonnes raisons de s'inscrire chez nous</h3>
+				</div>
+					<div class="row text-center justify-content-center">
+						<div class="col-4 reason">
+						<p>Permettre la consommation de produits locaux, de qualité, sains et de saison toute l’année</p>
+						</div>
+						<div class="col-4 reason">
+						<p style="margin-top: 15%;">Encourager les pratiques agricoles écologiques durables</p>
+						</div>
+					</div>
+					<div class="row text-center justify-content-center">
+						<div class="col-4 reason">
+						<p>Favoriser la biodiversité par la culture d’un plus grand nombre de variétés locales commercialisables</p>
+						</div>
+						<div class="col-4 reason">
+						<p style="margin-top: 10%;">Favoriser un circuit court transparent entre consommateur et producteur</p>
+						</div>
+					</div>
+					<div class="row text-center justify-content-center">
+						<div class="col-4 reason">
+						<p style="margin-top: 17%;">Un respect garanti de la charte de l’AMAP à laquelle j’adhère</p>
+						</div>
+						<div class="col-4 reason">
+						<p style="margin-top: 17%;">Une ouverture vers de nouvelles rencontres !</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
