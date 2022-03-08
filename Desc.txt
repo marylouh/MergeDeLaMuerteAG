@@ -1,0 +1,9 @@
+Nom du groupe : groupe 2
+Nom du projet / de l'application : Amap Generation
+Membres du groupe :
+-   Houria BENMOKRANE
+-   Sylvain BOULLOUD
+-   Mélanie CAVAIGNAC
+-   Gym GUISSIEGOU
+-   Élise OLIVIER-DASSONNEVILLE
+-   Charlotte VAN HOVE
